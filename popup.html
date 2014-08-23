@@ -25,31 +25,32 @@
       -
       - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
      -->
-
-    <!-- <script src="popup.js"></script> -->
+     
+    <script src="popup.js"></script>
     <!-- <link rel="stylesheet" href="main.css"> Include this later-->
 
   </head>
 
   <body>
-    <div class="text">
-      <p>Set your own Pomodoro timer! Enter the times (in minutes) below.</p>
+      <p>Use a Pomodoro timer!</p>
       
-      <div class="subtext">
-        <form name="times">
-          Working Time: <input type= "number" name="workTime">
-          Break Time: <input type= "number" name="breakTime">
-          <input type="submit" value="Enter">
+      <p id="clock">0h, 0m, 0s</p> <br>
+
+      <button id="start">Start!</button>
+      <!--
+      <div id="text">
+        <form id="user_input">
+          Working Time: <input type= "number" name="workTime" value="25"> 
+          <br>
+          Break Time: <input type= "number" name="breakTime" value="5">
+          <button>Start!</button>
         </form>
+      </div>
+      -->
 
       
-      </div>
-    </div>
-
-
 
   </body>
-
 
 </html>
 
