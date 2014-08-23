@@ -1,18 +1,14 @@
 //Pomodoro Timer Script
 
-(function ($) {
-   $(document);
-}(jQuery));
 
 $(document).ready(function() {
 
-	var d = new Date(0)
-	var endworktime = document.getElementbyId("clock").innerHTML = d.getTime();
-	endworktime += (3000000) // Add 50 minutes
 
-	var clock = document.getElementbyId("clock");
+	var d = new Date()
+	var endworktime = d.getTime() + 3000000 // Add 50 minutes
 
 	var hours, minutes, seconds
+
 
 	function runclock() {
 		setInterval(function() {
@@ -22,12 +18,15 @@ $(document).ready(function() {
 			hours = parseInt(seconds_left / 3600);
 			seconds_left = seconds_left % 3600;
 
+			console.log("debugseconds: " + seconds_left);
+
 			minutes = parseInt(seconds_left / 60);
 			seconds = parseInt(seconds_left % 60);
 
 			var newtime = " " + hours + "h, " + minutes + "m, " + seconds + "s";
 
-			clock.innerHTML = newtime;
+			document.getElementbyId("clock").innerHTML = newtime;
+			// Is it more efficent to make this a var?
 
 		}, 1000)
 	}
