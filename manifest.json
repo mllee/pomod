@@ -11,5 +11,9 @@
         "js": ["jquery.min.js", "contentscript.js"],
         "matches": ["<all_urls>"]
     }],
+    "background": {
+    	"scripts": ["eventPage.js"],
+    	"persistent": false
+    },
     "web_accessible_resources": ["script.js"]
 }
