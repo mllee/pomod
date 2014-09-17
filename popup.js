@@ -3,33 +3,37 @@
 
 //window.open("background.js","bg","background");
 
-var backgroundpage = chrome.extension.getBackgroundPage();
-var APP_CLOCK = backgroundpage.APP_CLOCK; // for cross script
+//var backgroundpage = chrome.extension.getBackgroundPage();
+//var APP_CLOCK = backgroundpage.APP_CLOCK; // for cross script
 
 console.log("popup.js now running");
 	
 
 $(document).ready(function() {
-	if (APP_CLOCK.isrunning) {
-		updateClock();
-	}
-	else {
+	// If the timer has not been set yet
+	if (!localStorage.getItem('time_started', function(){})) {
 		$('button').click(function() {
-			//document.getElementById('start').setEnabled = false;
-			console.log("Button Clicked");
- 	   		chrome.runtime.sendMessage({command: "turnon"});
+ 	   		chrome.runtime.sendMessage({command: "start_time"});	
  	   		updateClock();
-		})
+ 	   	})
+	}
+	else { // If the timer has already been started
+		updateClock();
 	}
 });
 
 function updateClock() {
-	console.log("Popup updating");
+	console.log("updateClock() running");
+
+	var endworktime = Date.parse(localStorage.getItem('time_started')) + 1000*50*60;
+	
 	var hours, minutes, seconds;
-	var newtime;
+	var newtime, current_time;
 
 	setInterval(function() {
-		seconds_left = APP_CLOCK.time;
+		current_time = new Date();
+		current_time = current_time.getTime();
+		seconds_left = (endworktime - current_time)/1000 ;
 
 		hours = parseInt(seconds_left / 3600);
 		seconds_left = seconds_left % 3600;
