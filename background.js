@@ -1,18 +1,16 @@
 //Pomodoro Timer
 //Background Script
-//$(document).ready(function() {
 
-chrome.runtime.onMessage.addListener( function(message, sender, response) {
-	console.log("onMessage listener activated");
-	saveStartTime();
-});
+function blockListener(tabId, changeInfo, tab) {
+	localStorage.setItem("blocked_sites", "www.reddit.com");
 
-function saveStartTime() {
-	console.log("saveStartTime() running");
-	var d;
+	var url = tab.url;
+	url = parseUri(url)['domain'];
+	var set_url = localStorage.getItem("blocked_sites");
 
-	if (!localStorage.getItem('time_started')) {
-		d = new Date();
-		localStorage.setItem("time_started", d.toString());
+	if ((url == set_url)) {
+		chrome.tabs.remove(tabId, function() {
+			alert("Keep Working! -Pomodoro Timer.")
+		})
 	}
 }

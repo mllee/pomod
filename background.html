@@ -1,0 +1,14 @@
+<html>
+	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.custom.min.js"></script>
+	<script type="text/javascript" src="js/persist-min.js"></script>
+	<script type="text/javascript" src="js/background.js"></script>
+ 	<script>
+        
+    // setup listeners
+    if(!chrome.tabs.onUpdated.hasListener(blockListener))
+        chrome.tabs.onUpdated.addListener(blockListener);
+    </script>
+</html>
+
+<!-- Disclaimer(?)- The structure of this page was taken from Davy Dany's Concentrate app.-->
