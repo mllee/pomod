@@ -7,9 +7,12 @@
 //var APP_CLOCK = backgroundpage.APP_CLOCK; // for cross script
 
 console.log("popup.js now running");
-	
+
 $(document).ready(function() {
 	//localStorage.clear(); // for development purposes.
+
+	var port = chrome.runtime.connect({name: "blocker"});
+	port.postMessage({time: "test"});
 
 
 	if (!localStorage.getItem("extra_time")) {
@@ -88,12 +91,11 @@ function calculateTime(endworktime) {
 	current_time = current_time.getTime();
 	seconds_left = (endworktime - current_time)/1000;
 
-	
 	return seconds_left;
 }
 
 function mainClock(seconds_left) {
-	// parses out to only this half hour, since we're only concerned with this cycle
+	// parses out time that's not in this immediate cycle
 	seconds_left = seconds_left % (1800);
 
 	minutes = parseInt(seconds_left / 60);
