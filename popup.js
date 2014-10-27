@@ -62,8 +62,9 @@ function updateClock() {
 	var totalClockTime;
 
 	setInterval(function() {
-		endworktime = Date.parse(localStorage.getItem('time_started')) 
+		endworktime = Date.parse(localStorage.getItem('time_started'))
 			+ parseInt(localStorage.getItem('extra_time'));
+        localStorage.setItem("endtime", endworktime.toString());
 
 		seconds_left = calculateTime(endworktime);
 
