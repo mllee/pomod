@@ -8,11 +8,10 @@
 		"default_popup": "popup.html"
 	},
 	"permissions": ["background", "storage", "tabs"],
-	"background_page" : "background.html",
     "background": {
-    	"js": ["jquery.min.js"],
+    	//"page": "background.html",
+    	"js": "jquery.min.js",
     	"scripts": ["background.js"]
-    	//"persistent": true
     },
     "web_accessible_resources": ["script.js"]
 }

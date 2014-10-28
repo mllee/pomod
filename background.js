@@ -16,7 +16,7 @@ chrome.runtime.onMessage.addListener( function(message, sender, response) {
 function blockListener(tabId, changeInfo, tab)
 {
     var url = tab.url;
-    localStorage.setItem("blocklist", {www.reddit.com,www.facebook.com,});
+    localStorage.setItem("blocklist", {reddit.com,facebook.com,});
     var blocklist = localStorage.getItem('blocklist');
     //^was giving me issues. implement later. -Matt, 10/27/14
     var timerend = new Date(localStorage.getItem('endtime'));

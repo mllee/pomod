@@ -1,0 +1,19 @@
+// Making the popup look nice.
+// Matt Lee, Pomod timer.
+
+body {
+    background-color: #5019A3
+    font-family:"helvetica neue",arial,sans-serif;// just for now
+    font-size:10px
+    font-color:
+}
+
+#totalclk {
+    font-size:8px
+    color:#949494
+}
+
+#mainclk {
+    font-size:16px
+    color: #0066FF
+}
