@@ -11,6 +11,7 @@
     "background": {
     	//"page": "background.html",
     	"js": "jquery.min.js",
+        "css": ["popup.css"],
     	"scripts": ["background.js"]
     },
     "web_accessible_resources": ["script.js"]
