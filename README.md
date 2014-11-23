@@ -1,4 +1,4 @@
-The Pomodoro Timer
+<strong> The Pomodoro Timer </strong>
 
 The Pomodoro Timer keeps you on a study schedule of 25 minutes
 of focus, and 5 minutes of break.
@@ -18,9 +18,6 @@ session), as well as the total amount of time left above it.
 Anyways I hope users of the app find it useful!
 
 _____
-As of this writing (11/4/14) the app is still needs lots of fixes
-thanks to a miserably busy courseload, but I'll resume work on
-this as soon as I get a chance.
-
-I really do enjoy working on this, tis a shame I can't at the
-moment.
+As of this writing (11/4/14) the app is still needs lots of work.
+I'm a bit busy at the moment but I'll continue work on this periodically
+as I find time.
