@@ -6,9 +6,10 @@
  	<script>
         
     // setup listeners
-    if(!chrome.tabs.onUpdated.hasListener(blockListener))
+    if(!chrome.tabs.onUpdated.hasListener(blockListener)){
         chrome.tabs.onUpdated.addListener(blockListener);
+    }
     </script>
 </html>
 
-<!-- Disclaimer(?)- The structure of this page was taken from Davy Dany's Concentrate app.-->
+

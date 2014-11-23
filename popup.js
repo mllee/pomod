@@ -42,7 +42,7 @@ $(document).ready(function() {
 
 		if (!localStorage.getItem('time_started')) {
 			d = new Date();
-			localStorage.setItem("time_started", d.toString());
+			localStorage.setItem("time_started", Date.parse(d));
 		}
  	   	setTimeout(function(){
  	   		updateClock();
@@ -85,7 +85,7 @@ function updateClock() {
 			localStorage.removeItem("extra_time");
 			document.getElementById("total_clock").innerHTML = "Time's Up!";
 			document.getElementById("main_clock").innerHTML = "0:00";
-			return;
+			return; // lol change this idt this is correct.
 		}
 	}, 1000);
 }

@@ -3,28 +3,43 @@
 console.log("background script running");
 //blockListener();
 
-chrome.runtime.onMessage.addListener( function(message, sender, response) {
-	console.log("message sent");
-	blockListener();
-})
 
+if (!chrome.tabs.onUpdated.hasListener(blocker)){
+    console.log("Block listener activated");
+    chrome.tabs.onUpdated.addListener(blocker);
+}
 
-chrome.tabs.onUpdated.addListener(function(tabId, changeInfo,tab){
-    //console.log("debug: listener working")
-    //console.log("debugg endworktime " + localStorage.getItem('endtime'));
+function blocker(tabId, changeInfo, tab) {
     var d = new Date();
+    // retrieve blocked websites in later update
+    var tabUrl = tab.url;
 
+    //wtf is going wrong here 
+    console.log(date.parse(d));
+    console.log(localStorage.getItem('endworktime'));
+    console.log("bool debug:")
     console.log(parseInt(d) < parseInt(localStorage.getItem('endworktime')));
+
     if (d < localStorage.getItem('endworktime')) {
-        //console.log("debug localstorage time working")
-        chrome.tabs.getSelected(null,function(tab) {
-            var tabUrl = tab.url;
+        chrome.tabs.getSelected(null, function(tab) {
+            tabUrl = tab.url;
         });
-        if (tabUrl.contains("reddit")){
+
+
+        bl_nowww = stripWWW("www.reddit.com");
+        bl_www = parseUri("www.reddit.com")['domain'];
+        if((url == bl_nowww) || (url == bl_www))
+        {
+            chrome.tabs.remove(tabId, function()
+            {
+                alert(url + " is on your blocklist.");
+            });
+        }
+        if (tabUrl.contains("reddit")) {
             alert("Site is blocked"); //testing fix later 
         }
     }
-});
+}
 
 /*
 chrome.declarativeContent.onPageChanged.addRules([
