@@ -62,9 +62,14 @@ function updateClock() {
 	var totalClockTime;
 
 	setInterval(function() {
+
+		//console.log("A:"+Date.parse(localStorage.getItem('time_started')));
+        //console.log("B:"+parseInt(localStorage.getItem('extra_time')));
+
 		endworktime = Date.parse(localStorage.getItem('time_started'))
 			+ parseInt(localStorage.getItem('extra_time'));
-        localStorage.setItem("endtime", endworktime.toString());
+        localStorage.setItem("endtime", endworktime);
+        // endwork time is an integer string
 
 		seconds_left = calculateTime(endworktime);
 
@@ -82,7 +87,7 @@ function updateClock() {
 			document.getElementById("main_clock").innerHTML = "0:00";
 			return;
 		}
-	}, 100);
+	}, 1000);
 }
 
 

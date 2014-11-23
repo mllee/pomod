@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
   <head>
-    <title>Testing. HTML Title.</title>
     <link rel="stylesheet" type="text/css" href="popup.css">
+    <title>Testing. HTML Title.</title>
     <style>
       body {
         min-width: 357px;
@@ -25,10 +25,15 @@
   </head>
 
   <body>
-      <p>Add time to the Pomodoro Timer!</p>
-      <button id="plus1"> +30 min</button>
-      <button id="plus2"> +60 min</button>
-      <button id="plus3"> +90 min</button>
+      <div id="text">
+        <p>Add time to the Pomodoro Timer!</p>
+      </div>
+
+      <div id="buttons">
+        <button id="plus1"> +30 min</button>
+        <button id="plus2"> +60 min</button>
+        <button id="plus3"> +90 min</button>
+      </div>
 
       <div id="totalclk">
       <p id="total_clock">0:00:00</p>

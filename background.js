@@ -1,56 +1,94 @@
 //Pomodoro Timer
 //Background Script
 console.log("background script running");
+//blockListener();
 
 chrome.runtime.onMessage.addListener( function(message, sender, response) {
 	console.log("message sent");
 	blockListener();
 })
 
-//A lot of functionality in the below was learnd by studying the source of
-//Davy Dany's Concentrate, another productivity app with a similar goal.
-//I had previously been using Concentrate but wanted something a bit different, which
+
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo,tab){
+    //console.log("debug: listener working")
+    //console.log("debugg endworktime " + localStorage.getItem('endtime'));
+    var d = new Date();
+
+    console.log(parseInt(d) < parseInt(localStorage.getItem('endworktime')));
+    if (d < localStorage.getItem('endworktime')) {
+        //console.log("debug localstorage time working")
+        chrome.tabs.getSelected(null,function(tab) {
+            var tabUrl = tab.url;
+        });
+        if (tabUrl.contains("reddit")){
+            alert("Site is blocked"); //testing fix later 
+        }
+    }
+});
+
+/*
+chrome.declarativeContent.onPageChanged.addRules([
+      {
+        // That fires when a page's URL contains a 'g' ...
+        conditions: [
+          new chrome.declarativeContent.PageStateMatcher({
+            pageUrl: { urlContains: 'reddit' },
+          })
+        ],
+        // And shows the extension's page action.
+        actions: [
+            console.log("actiondebug"),
+            alert("Blocked!")
+        ]
+      }
+]);
+*/
+
+
+
+//A lot of functionality in the below was learned by studying the source of
+//Davy Dany's Concentrate, another productivity app.
+//I had previously been using Concentrate but didnt like the format, which
 //spurred me to create my Pomodoro Timer.
 // Thanks for the inspiration Davy. (and helping me figure this bit out)
 
+/*
 function blockListener(tabId, changeInfo, tab)
 {
     var url = tab.url;
     localStorage.setItem("blocklist", [reddit]);
     var blocklist = localStorage.getItem('blocklist');
-    //^was giving me issues. implement later. -Matt, 10/27/14
-    var timerend = new Date(localStorage.getItem('endtime'));
+    //^was giving me issues. implement properly later. -Matt, 10/27/14
+    //var timerend = new Date(localStorage.getItem('endtime'));
+    //^this wont work because im dynamically allocating time 
 
-    if(timerend && (url != undefined))
+    //if(timerend && (url != undefined))
+    if(url != undefined)
     {
-        var currtime = new Date()
-        if(currtime > timerend)
-        {
-            localStorage.removeItem('endtime');
-        }
-        else
-        {
-            var blcontent = blocklist.split(',');
-            url = parseUri(url)['domain'];
+        var blcontent = blocklist.split(',');
+        url = parseUri(url)['domain'];
 
-            for(var i = 0; i < blcontent.length; i++)
+        console.log("init debug");
+        for(var i = 0; i < blcontent.length; i++)
+        {
+            if(blcontent[i] != "")
             {
-                if(blcontent[i] != "")
+                console.log("debug1");
+                bl_nowww = stripWWW(blcontent[i]);
+                bl_www = parseUri(blcontent[i])['domain'];
+                if((url == bl_nowww) || (url == bl_www))
                 {
-                    bl_nowww = stripWWW(blcontent[i]);
-                    bl_www = parseUri(blcontent[i])['domain'];
-                    if((url == bl_nowww) || (url == bl_www))
+                    console.log("debug2");
+                    chrome.tabs.remove(tabId, function()
                     {
-                        chrome.tabs.remove(tabId, function()
-                        {
-                            alert(url + " is on your blocklist.");
-                        });
-                    }
+                        alert(url + " is on your blocklist.");
+                    });
                 }
             }
         }
     }
 }
+*/
 
 
 
@@ -58,7 +96,8 @@ function blockListener(tabId, changeInfo, tab)
 /* parseUri JS v0.1, by Steven Levithan (http://badassery.blogspot.com)
 Splits any well-formed URI into the following parts (all are optional):
 ----------------------
-• source (since the exec() method returns backreference 0 [i.e., the entire match] as key 0, we might as well use it)
+• source (since the exec() method returns backreference 0 
+[i.e., the entire match] as key 0, we might as well use it)
 • protocol (scheme)
 • authority (includes both the domain and port)
     • domain (part of the authority; can be an IP address)

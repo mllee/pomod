@@ -1,19 +1,102 @@
 // Making the popup look nice.
-// Matt Lee, Pomod timer.
+
+$red:   #E0645C;
+$dark:  #444444;
+$light: #999999;
+$blue:  #2DB6CF;
+$green: #46b98a;
+$white: #FFFFFF;
 
 body {
-    background-color: #5019A3
-    font-family:"helvetica neue",arial,sans-serif;// just for now
-    font-size:10px
-    font-color:
+    background-color: #FFCCCC;
+    font-size: 10px;
 }
 
+#text {
+    float: right;
+}
+
+/*
+#buttons {
+  width: 735px;
+  margin: 50px auto;
+  background: whitesmoke;
+  padding: 25px;
+}*/
+.myButton {
+	-moz-box-shadow:inset 0px 0px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 0px 0px 0px #ffffff;
+	box-shadow:inset 0px 0px 0px 0px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+	background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color:#ffffff;
+	-moz-border-radius:12px;
+	-webkit-border-radius:12px;
+	border-radius:12px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 28px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+#buttons:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff));
+	background:-moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color:#f6f6f6;
+}
+.buttons:active {
+	position:relative;
+	top:1px;
+}
+
+/*
+#buttons {
+    float: right;
+    border: 0 none;
+     border-radius: 2px 2px 2px 2px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial,sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 20px;
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 7px 10px;
+  text-transform: none;
+  transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+  width: 16.795%;*/ /* auto */
+/*
+}
+*/
+
 #totalclk {
-    font-size:8px
-    color:#949494
+    clear: left;
+    font-size:16px;
+    color:#949494;
+    float: left;
 }
 
 #mainclk {
-    font-size:16px
-    color: #0066FF
+    clear: left;
+    font-size:40px;
+    font-weight: bold;
+    color: #627DCC;
+    display: block;
 }
