@@ -22,9 +22,4 @@ with the buttons on the right side; use them to start a new session
 or extend your current session.
 
 
-Anyways I hope users of the app find it useful!
 
-_____
-As of this writing (11/4/14) the app is still needs lots of work.
-I'm a bit busy at the moment but I'll continue work on this periodically
-as I find time.
