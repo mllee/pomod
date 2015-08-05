@@ -9,9 +9,7 @@ incredibly useful in my studies.
 The Timer displays the amount of time left to go ham (out of each 25 minute
 session), as well as the total amount of time left above it.
 
-Here's a basic look at the UI (I'll make it look prettier later) :
-![alt text](https://github.com/mllee/pomod/blob/master/screen_shot.png 
-            "Logo Title Text 1")
+[There was a UI picture here previously. I promise I'll update it eventually.]
 
 The smaller gray timer tells you how much time is left in your total
 study session, and the larger blue timer tells you how much
